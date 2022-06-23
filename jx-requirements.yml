@@ -1,12 +1,42 @@
 apiVersion: core.jenkins-x.io/v4beta1
 kind: Requirements
 spec:
+  autoUpdate:
+    enabled: false
+    schedule: ""
   cluster:
+    azure:
+      secretStorage:
+        keyVaultName: touching-mallard
+      storage:
+        storageAccountName: jxtouchingmallard
+    chartRepository: http://jenkins-x-chartmuseum.jx.svc.cluster.local:8080
+    environmentGitOwner: mharris867
+    gitKind: github
+    gitName: github
+    gitServer: https://github.com
     provider: aks
+    registry: touchingmallard.azurecr.io
   environments:
   - key: dev
+    owner: mharris867
+    repository: jenkins-x-cluster
   - key: staging
-  - key: production  
+  - key: production
   ingress:
-    tls: {}
+    domain: 20.237.251.31.nip.io
+    kind: ingress
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  pipelineUser:
+    username: mharris867
+  repository: nexus
   secretStorage: azurekeyvault
+  storage:
+  - name: logs
+    url: azblob://logs
+  vault: {}
+  webhook: lighthouse
