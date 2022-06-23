@@ -41,7 +41,7 @@ data:
         - needs-rebase
         repos:
         - mharris867/jenkins-x-cluster
-      target_url: http://lighthouse-jx./merge/status
+      target_url: http://lighthouse-jx.20.237.251.31.nip.io/merge/status
 kind: ConfigMap
 metadata:
   creationTimestamp: null
